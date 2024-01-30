@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Klassisk webutvikling</title>
+    </head>
+    <style>
+        body {
+            margin: 45px;
+        }
+        li {
+            margin-top: 25px;
+            list-style-type: circle;
+            opacity: 0;
+            transition: all .5s ease-in-out;
+        }
+        li.shown {
+            opacity: 1;
+        }
+    </style>
+    <body>
+        <h1>Klassisk webutvikling</h1>
+
+        <p>Rein HTML/CSS/JavaScript kan gjere alt, det er berre litt tungvindt å lage moderne nettsider utan meir drahjelp.</p>
+
+        <ul>
+            <li>HTML blir ofte modularisert og skrive som komponentar som blir gjenbrukt ulike stadar på nettsida ved hjelp av JavaScript.</li>
+
+            <li>CSS er ofte erstatta av til dømes utility-classes eller SCSS, som brukar eit scriptspråk til å generere normal CSS som nettlesaren forstår.</li>
+
+            <li>JavaScript er ofte skrive i eigne miljø med forenklingar og forbetringar, som så blir kompilert til standard JavaScript som nettlesarane forstår.</li>
+        </ul>
+
+        <script>
+            
+            // Add an event listener for all clicks on the page
+            document.addEventListener("click", function(event){
+
+                // Find all li-elements
+                const lis = document.getElementsByTagName("li");
+
+                // Enumerate all the li-elements
+                for(let i = 0; i < lis.length; i++){
+
+                    // If this li is already visible, continue to the next
+                    if(lis[i].classList[0] == "shown") continue;
+
+                    // Set this li to visible
+                    lis[i].classList = "shown";
+
+                    // Exit the loop, we only want to show one at a time.
+                    break;
+                }
+            });
+            
+        </script>
+
+    </body>
+</html>

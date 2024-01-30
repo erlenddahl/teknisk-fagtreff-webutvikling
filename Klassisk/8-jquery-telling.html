@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Klassisk webutvikling</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    </head>
+    <style>
+        body {
+            margin: 45px;
+        }
+    </style>
+    <body>
+        <h1>Middelalderen - jQuery</h1>
+
+        Her er telle-eksempelet med jQuery:
+
+        <div>
+            <button id="counter">Tell</button>
+            <div style="margin: 15px; font-size: 8px;" id="display">0</div>
+        </div>
+
+        <script>
+
+            let count = 0;
+            $("#counter").click(function(e){
+                $("#display").text(++count).css({fontSize: (8 + count) + "px"});
+            });
+
+            /*
+
+            Før:
+            
+            // Create the count variable and set its initial value.
+            let count = 0;
+
+            // Find the button and the display elements
+            const countButton = document.getElementById("counter");
+            const display = document.getElementById("display");
+
+            // Add an event listener that will be called when we
+            // click the button.
+            countButton.addEventListener("click", function(event){
+
+                // Increase the count
+                count++;
+
+                // Update the display text
+                display.innerText = count;
+
+                // And set the font size depending on the current count.
+                // (also remember to include the margin, so it won't get 
+                // removed).
+                display.style = "margin: 15px; font-size: " + (8 + count) + "px";
+            });
+            
+            */
+
+        </script>
+
+    </body>
+</html>

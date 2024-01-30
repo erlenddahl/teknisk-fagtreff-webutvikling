@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Klassisk webutvikling</title>
+    </head>
+    <body>
+        <h1>JavaScript</h1>
+
+        <p>JavaScript kan brukast til å lage interaktive nettsider.</p>
+        
+        <button id="counter">Tell</button>
+
+        <div style="margin: 15px; font-size: 8px;" id="display">0</div>
+
+        <script>
+
+            // Create the count variable and set its initial value.
+            let count = 0;
+
+            // Find the button and the display elements
+            const countButton = document.getElementById("counter");
+            const display = document.getElementById("display");
+
+            // Add an event listener that will be called when we
+            // click the button.
+            countButton.addEventListener("click", function(event){
+
+                // Increase the count
+                count++;
+
+                // Update the display text
+                display.innerText = count;
+
+                // And set the font size depending on the current count.
+                // (also remember to include the margin, so it won't get 
+                // removed).
+                display.style = "margin: 15px; font-size: " + (8 + count) + "px";
+            });
+        </script>
+        
+    </body>
+</html>
+
+
+

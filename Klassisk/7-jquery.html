@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Klassisk webutvikling</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    </head>
+    <style>
+        body {
+            margin: 45px;
+        }
+        li {
+            margin-top: 25px;
+            list-style-type: circle;
+            opacity: 0;
+            transition: all .5s ease-in-out;
+        }
+        li.shown {
+            opacity: 1;
+        }
+    </style>
+    <body>
+        <h1>Middelalderen - jQuery</h1>
+
+        <p>I takt med at nettsider vart meir kompliserte, oppstod det stadig fleire <em>kodebibliotek</em>.</p>
+
+        <ul>
+            <li>jQuery er eit biblitek som vart laga for å gjere vanlege JavaScript-operasjonar enkle, og like på tvers av nettlesarar.</li>
+            
+            <li>Biblioteket er nok mest kjent for $("")-selectoren sin, som kombinerer og utvidar document.getElementById, document.getElementByClassName, document.getElementBy*.</li>
+
+            <li>
+                Men også for sin funksjonelle stil, og bruk av <em>function chaining</em>: <br />
+                <span style="font-family: 'Courier New', Courier, monospace;">$("li").text("blabla").css({}).animate()</span>
+            </li>
+        </ul>
+
+        <script>
+
+            // Add an event listener for all clicks on the page
+            $(document).click(function(e) {
+
+                // Find the first li-element that does not have the shown class, and add it.
+                $("li:not(.shown):first").addClass("shown");
+
+            });
+
+        </script>
+
+    </body>
+</html>

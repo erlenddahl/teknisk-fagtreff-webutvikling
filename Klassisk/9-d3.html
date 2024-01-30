@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Klassisk webutvikling</title>
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+    </head>
+    <style>
+        body {
+            margin: 45px;
+        }
+        button {
+            margin-top: 30px;
+        }
+    </style>
+    <body>
+        
+        <h1>D3 - Data-driven documents</h1>
+
+        <p>D3 er eit anna populært "klassisk" JavaScript-bibliotek som ofte er brukt for å visualisere data i tabellar eller grafar.</p>
+        
+        <div id="bar-chart"></div>
+
+        <button id="randomize">Tilfeldige tal</button>
+
+        <script>
+
+            // Some data
+            let dataArray = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+            // Dimensions and margins for the chart
+            const width = 400, height = 200, barPadding = 5;
+            const barWidth = (width / dataArray.length) - barPadding;
+
+            // Select the bar-chart div, and add an svg element
+            const svg = d3.select("#bar-chart")
+                        .append("svg")
+                        .attr("width", width)
+                        .attr("height", height);
+
+            function refresh(){
+
+                // Create rectangles representing the bars
+                const bars = svg.selectAll("rect")
+                    .data(dataArray);
+
+                // Tell d3 how to draw the initial bars ...
+                bars.enter()
+                    .append("rect")
+                    .attr("x", (d, i) => i * (barWidth + barPadding))
+                    .attr("y", height)
+                    .attr("width", barWidth)
+                    .attr("height", 0)
+                    .attr("fill", "blue")
+                    .transition()
+                    .duration(1000) 
+                    .attr("y", d => height - d) // Move the bar up
+                    .attr("height", d => d); // Grow to full height
+
+                // ... and how to update them when the values change.
+                bars.transition()
+                    .duration(1000)
+                    .attr("x", (d, i) => i * (barWidth + barPadding))
+                    .attr("y", d => height - d)
+                    .attr("height", d => d);
+            }
+            refresh();
+
+            d3.select("#randomize").on("click", function() {
+                dataArray = dataArray.map(() => Math.floor(Math.random() * 150));
+                refresh();
+            });
+
+        </script>
+
+    </body>
+</html>

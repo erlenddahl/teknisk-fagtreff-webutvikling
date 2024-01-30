@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Klassisk webutvikling</title>
+        <style>
+            body {
+                margin: 45px;
+            }
+
+            .box {
+                display: block; 
+                padding: 10px; 
+                border-radius: 10px; 
+                font-weight: bold;
+            }
+
+            .red-box {
+                border: 2px solid darkred;
+                background-color: #cc6666;
+                cursor: pointer;
+                scale: 1;
+                transition: all .2s ease-in-out;
+            }
+
+            .red-box:hover {
+                scale: 1.05;
+                opacity: .5;
+            }
+
+            .blue-box {
+                margin-top: 100px;
+                width: 170px;
+                border: 2px solid darkblue;
+                background-color: #6666cc;
+                text-align: center;
+                cursor: pointer;
+                transition: all .5s ease-in-out;
+            }
+
+            .blue-box:hover {
+                rotate: -90deg;
+            }
+
+            #sintef {
+                width: 300px;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                margin-top: 75px;
+                border-radius: 15px;
+                transition: all .5s ease-in-out;
+            }
+
+            #sintef:hover {
+                border-radius: 9999px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>CSS-animasjonar</h1>
+        
+        <p class="box red-box">Animasjonar kan brukast til å sette diverse effektar på objekt, for eksempel ved mouse-over (:hover).</p>
+
+        <p class="box blue-box">Rotasjon</p>
+
+        <img id="sintef" src="https://www.sintef.no/contentassets/b6ddbaaeb0ff4d5a9a9ca8780945b4d3/sintef-forside-2021.jpg?width=1080&height=720&mode=crop&quality=80" />
+        
+    </body>
+</html>
+
+
+
